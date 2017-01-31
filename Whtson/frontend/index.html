@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="main.js"></script>
+<script src="services.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Whtson</title>
+</head>
+<body onload="Count()">
+<h1>Select Entry or Exit</h1>
+<button onclick = "Entry()">Entry</button>
+<button onclick = "Exit()">Exit</button>
+<br>
+<br>
+<div id="Entry" style="display:none">
+    <h2>Entry Register</h2>
+    <div id="onlyEmployee">
+        <input type="Number" id="inputPno" placeholder="Enter Personal Number"required/>
+        <button type="submit" onclick = EmployeeCheck(inputPno.value)>Submit</button>
+    </div>
+    <div id="onlyVisitor" style="display:none">
+        <input type="text" id="VisitorName" placeholder="Enter Visitor Name" required/>
+        <input type="Number" id = "hostId" placeholder="Enter HostId of the employee" required/>
+        <button type="submit" onclick="VisitorLog(document.getElementById('VisitorName').value,document.getElementById('hostId').value)">Submit</button>
+    </div>
+</div>
+<div id="Exit" style="display:none">
+    <h2>Exit Register</h2>
+    <h4>Exit as Employee or Visitor?</h4>
+    <button  onclick="EmployeeExitHandler()">Employee</button>
+    <button  onclick="VisitorExitHandler()">Visitor</button>
+    <br><br>
+    <div style="display:none" id="VisitorExitDiv">
+        <input type="text" id="VisitorExitName" placeholder="Enter Visitor Name" required/>
+        <input type="number" id="VisitorExitHostId" placeholder="Enter HostId" required/>
+        <button onclick="VisitorExitLog(VisitorExitName.value,VisitorExitHostId.value)">Submit</button>
+    </div>
+
+    <div style="display:none" id="EmployeeExitDiv">
+        <input type="number" id="EmployeeExitPersonalNumber" placeholder="Enter Employee personal Number" required/>
+        <button onclick="EmployeeExitLog(EmployeeExitPersonalNumber.value)">Submit</button>
+    </div>
+
+</div>
+
+<div>
+    <h1>People in the building currently</h1>
+    <h2 id="EmployeeCount">
+
+    </h2>
+    <h2 id = "VisitorCount">
+
+    </h2>
+</div>
+
+</body>
+</html>
